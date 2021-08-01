@@ -22,7 +22,7 @@ class Nodes:
 
     def overwrite(self, new_nodes):
         with self.lock:
-            print('[ N] nodes will be going to overwrite')
+            print('[ N] Overwriting the nodes.')
             self.nodes = new_nodes
             print('[ N] Current nodes: ', self.nodes)
 
