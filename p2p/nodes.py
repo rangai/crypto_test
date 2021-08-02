@@ -7,24 +7,26 @@ class Nodes:
         self.lock = threading.Lock()
         self.nodes = set()
 
-    def add_node(self, node):
+    def add_node(self, peer):
         with self.lock:
-            print('[ N] Adding node: ', node)
-            self.nodes.add((node))
+            print('[ N] Adding peer: ', peer)
+            self.nodes.add((peer))
             print('[ N] Current nodes: ', self.nodes)
 
-    def remove_node(self, node):
+
+    def remove_node(self, peer):
         with self.lock:
-            if node in self.nodes:
-                print('[ N] Removing node: ', node)
-                self.nodes.remove(node)
+            if peer in self.nodes:
+                print('[ N] Removing node: ', peer)
+                self.nodes.remove(peer)
                 print('[ N] Current nodes: ', self.nodes)
 
     def overwrite(self, new_nodes):
         with self.lock:
-            print('[ N] Overwriting the nodes.')
+            print('[ N] Overwriting nodes')
             self.nodes = new_nodes
             print('[ N] Current nodes: ', self.nodes)
+
 
     def get_nodes(self):
         return self.nodes
